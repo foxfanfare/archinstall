@@ -26,11 +26,17 @@
 # LANCEMENT DE L'INTERFACE
 # ------------------------------------------------
 
+# Titre
 clear
 echo
-echo -e " ================================================="
-echo -e " SCRIPT D'INSTALLATION DE ARCH LINUX (RÉMY MARTIN)"
-echo -e " ================================================="
+echo -e " ================================================= "
+echo -e " SCRIPT D'INSTALLATION DE ARCH LINUX (RÉMY MARTIN) "
+echo -e " ================================================= "
 echo
 echo -e " Important : Veuillez vous connecter à internet par le port ethernet"
 echo
+
+# Nom de l'hôte
+echo -n " Nom d'hôte : "
+read HOSTNAME
+: "${HOSTNAME:?"Le nom d'hôte ne peut pas être vide."}"
