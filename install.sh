@@ -26,6 +26,7 @@
 # LANCEMENT DE L'INTERFACE
 # ------------------------------------------------
 
+clear
 echo
 echo -e " ================================================="
 echo -e " SCRIPT D'INSTALLATION DE ARCH LINUX (RÉMY MARTIN)"
