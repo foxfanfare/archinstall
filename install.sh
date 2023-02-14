@@ -99,6 +99,7 @@ format() {
   echo
   echo "${BOLD}(1/${TOTAL}) Gestion des disques${NORMAL}"
   echo "${SPACE}Partitionnement des disques"
+
   umount -R /mnt &>/dev/null;
   swapoff /dev/sda2 &>/dev/null;
   printf "d\n\nd\n\nd\n\n
@@ -107,6 +108,7 @@ format() {
     \nn\n\n3\n\n
     \nw\n" | fdisk /dev/sda &>/dev/null
   echo
+
 }
 
 # Lancement du script
