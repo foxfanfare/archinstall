@@ -107,7 +107,7 @@ format() {
   swapoff /dev/sda* &>/dev/null;
   printf "d\nd\nd\nd\n
     n\n\n\n\n\ny\n
-    w\n" | fdisk /dev/sda &>/dev/null;
+    w\n" | fdisk /dev/sda;
 }
 
 # Lancement du script
