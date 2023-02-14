@@ -97,13 +97,19 @@ check_password() {
 # ------------------------------------------------
 format() {
   clear
-  echo $DELIMITER
+  echo $DELIMITER;
   echo "${BOLD}Installation système pour $PROFILE${NORMAL}"
-  echo $DELIMITER
+  echo $DELIMITER;
   echo
   echo "${BOLD}(1/${TOTAL}) Gestion des disques${NORMAL}"
   echo "${SPACE}Partitionnement des disques"
 
+  umount -R /mnt &>/dev/null;
+  swapoff /dev/sda* &>/dev/null;
+
+  printf "d\nd\nd\nd\n
+    n\np\n1\n\n\ny\n
+    w\n" | fdisk /dev/sda &>/dev/null;
 }
 
 # Lancement du script
