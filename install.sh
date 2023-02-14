@@ -64,7 +64,7 @@ select_profile() {
 # Confirmation du profil
 # ------------------------------------------------
 confirm_profile() {
-  read -p "${BOLD}:: Procéder à l'installation pour "$PROFILE" ? Des données risques d'être effacées.${NORMAL}[o/N] " CONFIRM;
+  read -p "${BOLD}:: Procéder à l'installation pour "$PROFILE" ? Des données risques d'être effacées. ${NORMAL}[o/N] " CONFIRM;
   if [[ "$CONFIRM" =~ ^([oO][uU][iI]|[oO])$ ]]; then
     break
   else
@@ -85,7 +85,7 @@ choose_password() {
   if [[ "$PASSWORD" != "$PASSWORD2" ]]; then
     echo "${BOLD}ERREUR : Les mots de passe ne sont pas identiques.${NORMAL}"
     read -p "Presser une touche pour recommencer...";
-    sh install.sh;
+    exit
   fi
 }
 
