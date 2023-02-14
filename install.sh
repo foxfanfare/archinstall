@@ -105,9 +105,15 @@ format() {
   echo "${SPACE}Partitionnement des disques"
   umount -R /mnt &>/dev/null;
   swapoff /dev/sda* &>/dev/null;
-  printf "d\nd\nd\nd\n
-    n\n\n\n\n\ny\n
-    w\n" | fdisk /dev/sda;
+  HP_DRIVE="sda"
+  SILENCIO_DRIVE="nvme0n1"
+  case "$PROFILE" in
+    "Silencio-4570S") echo "1";;
+    "HP-DV7") echo "2" ;;
+  esac
+  #printf "d\nd\nd\nd\n
+  #  n\n\n\n\n\ny\n
+  #  w\n" | fdisk /dev/sda;
 }
 
 # Lancement du script
