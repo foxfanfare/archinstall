@@ -15,6 +15,7 @@
 # LANCEMENT DU SCRIPT
 # ------------------------------------------------
 # loadkeys fr-latin1
+# pacman-key --init
 # pacman -Sy git
 # git clone https://github.com/foxfanfare/archinstall
 # sh archinstall/install.sh
@@ -82,10 +83,13 @@ choose_password() {
   echo -n "Répéter le mot de passe : "
   read -s PASSWORD2;
   echo
+}
+
+check_password() {
   if [[ "$PASSWORD" != "$PASSWORD2" ]]; then
     echo "${BOLD}ERREUR : Les mots de passe ne sont pas identiques.${NORMAL}"
     read -p "Presser une touche pour recommencer...";
-    exit
+    choose_password;
   fi
 }
 
@@ -100,15 +104,6 @@ format() {
   echo "${BOLD}(1/${TOTAL}) Gestion des disques${NORMAL}"
   echo "${SPACE}Partitionnement des disques"
 
-  umount -R /mnt &>/dev/null;
-  swapoff /dev/sda2 &>/dev/null;
-  printf "d\n\nd\n\nd\n\n
-    \nn\n\n2\n\n+1G
-    \nn\n\n1\n\n+10G
-    \nn\n\n3\n\n
-    \nw\n" | fdisk /dev/sda &>/dev/null
-  echo
-
 }
 
 # Lancement du script
@@ -118,4 +113,5 @@ select_profile;
 echo
 confirm_profile;
 choose_password;
+check_password;
 format;
