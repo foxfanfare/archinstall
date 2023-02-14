@@ -103,17 +103,16 @@ format() {
   echo
   echo "${BOLD}(1/${TOTAL}) Gestion des disques${NORMAL}"
   echo "${SPACE}Partitionnement des disques"
-
   umount -R /mnt &>/dev/null;
   swapoff /dev/sda* &>/dev/null;
-
   printf "d\nd\nd\nd\n
-    n\np\n1\n\n\ny\n
+    n\n\n\n\n\ny\n
     w\n" | fdisk /dev/sda &>/dev/null;
 }
 
 # Lancement du script
 # ------------------------------------------------
+
 print_title;
 select_profile;
 echo
