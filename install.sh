@@ -108,12 +108,13 @@ format() {
   HP_DRIVE="sda"
   SILENCIO_DRIVE="nvme0n1"
   case "$PROFILE" in
-    "Silencio-4570S") echo "1";;
-    "HP-DV7") echo "2" ;;
+    "Silencio-4570S")
+      DRIVE=$(lsblk | grep "$SILENCIO_DRIVE") ;;
+      echo "$DRIVE"
+    "HP-DV7")
+      DRIVE=$(lsblk | grep "$HP-DV7") ;;
+      echo "$DRIVE"
   esac
-  #printf "d\nd\nd\nd\n
-  #  n\n\n\n\n\ny\n
-  #  w\n" | fdisk /dev/sda;
 }
 
 # Lancement du script
@@ -126,3 +127,7 @@ confirm_profile;
 choose_password;
 check_password;
 format;
+
+    #printf "d\nd\nd\nd\n
+    #  n\n\n\n\n\ny\n
+    #  w\n" | fdisk /dev/sda;
