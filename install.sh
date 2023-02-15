@@ -109,11 +109,11 @@ format() {
   SILENCIO_DRIVE="nvme0n1"
   case "$PROFILE" in
     "Silencio-4570S")
-      DRIVE=$(lsblk | grep "$SILENCIO_DRIVE") ;;
-      echo "$DRIVE"
+      DRIVE=$(lsblk | grep "$SILENCIO_DRIVE")
+      echo "$DRIVE" ;;
     "HP-DV7")
-      DRIVE=$(lsblk | grep "$HP-DV7") ;;
-      echo "$DRIVE"
+      DRIVE=$(lsblk | grep "$HP-DV7")
+      echo "$DRIVE" ;;
   esac
 }
 
